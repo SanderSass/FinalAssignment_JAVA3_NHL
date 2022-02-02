@@ -2,4 +2,4 @@
 is really really cool.
 
 ## Start Document of the Java 3 application
-see documentation [here](m/strartDocument.md)
+see start documentation [here](startDocument.md)
