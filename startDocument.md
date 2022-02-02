@@ -1,4 +1,4 @@
-# StartDocument for Java 3 application
+# StartDocument for Java 3 application - Train station
 
 Startdocument of:
 
@@ -8,9 +8,26 @@ Startdocument of:
 
 ## Problem Description
 
+We have
 
 
 
+### Classes
+
+- TrainStation
+- TrainCompany
+- Trip
+- Train
+- Person
+  - Passenger
+  - Train conductor
+  - Employee
+- Ticket
+  - FirstClassTicket
+  - SecondClassTicket
+- Meal
+  - NormalMeal
+  - SpecialMeal
 
 ### Input & Output
 
