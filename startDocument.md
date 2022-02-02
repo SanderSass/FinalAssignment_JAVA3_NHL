@@ -1,4 +1,4 @@
-# StartDocument for Java 3 application - Train station
+# StartDocument for reset Java Finals application - Train station
 
 Startdocument of:
 
@@ -8,7 +8,12 @@ Startdocument of:
 
 ## Problem Description
 
-We have
+This project consists of multiple methods to manage the train system. The following functionalities will be:
+
+- Book the train ticket with two options
+- Order the meal with two options
+- Shows the list of passengers per ticket class
+- Shows
 
 
 
