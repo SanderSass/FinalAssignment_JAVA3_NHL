@@ -1,16 +1,24 @@
-# StartDocument for Java 3 application - Train station
+# Start Document for Java 3 application - Train station
 
-Startdocument of:
+Start document of:
 
-- Dung Do Xuan, 
+- Tung Do Xuan, 4679687
 
 - Sander Siimann, 4767667
 
 ## Problem Description
 
-We have
+A train station application that allow the following:
 
-
+- A passenger can sign up with name and date of birth.
+- A passenger can purchase ticket and buy a meal for their trip.
+- A ticket can show departure, arrival date, price, what type of meal and whether it is a first or a second class.
+- A meal contains ....................
+- A train station can show all the trip, the profits, expenses, all trip history and add train company.
+- A train company can book ticket, get trip history, add employee, refund tickets, schedule trip, find all employee and cancel flight.
+- A trip can add passenger, get trip cost and check ticket availability.
+- A train can calculate the train cost according to its total distance and fuel consumption.
+- An employee can see their salary and it differs between roles (Train conductor, conductor assistance, server)
 
 ### Classes
 
