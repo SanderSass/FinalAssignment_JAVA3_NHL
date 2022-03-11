@@ -136,11 +136,11 @@ In the following table you'll find all the data that is needed for testing.
 
 #### Trip
 
-| ID                 | Input | Code |
-| ------------------ | ----- | ---- |
-| emmenZwolle        |       |      |
-| groningenAmsterdam |       |      |
-| rotterdamUtrecht   |       |      |
+| ID                 | Input                                                        | Code                                         |
+| ------------------ | ------------------------------------------------------------ | -------------------------------------------- |
+| emmenZwolle        | train: blauwnet, tripID: A1, date: 02-03-2022, cancelled: false, distance: 70, complete: false, destination: Zwolle | new Trp(blauwnet, "A1", 02-03-2022, false, ) |
+| groningenAmsterdam |                                                              |                                              |
+| rotterdamUtrecht   |                                                              |                                              |
 
 #### Blauwnet
 
