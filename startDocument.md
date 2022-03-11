@@ -15,8 +15,6 @@ This project consists of multiple methods to manage the train system. The follow
 - Shows the list of passengers per ticket class
 - Shows
 
-
-
 ### Classes
 
 - TrainStation
@@ -82,15 +80,21 @@ In the table below all the input (that the user has to input in order to make th
 | The trip cost                           | double               |
 | The total train cost with many trips    | double               |
 
-
-
 #### Calculations
+
+| Case                 | Calculation                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| The company profit   | The sum of all ticket prices subtracted the total expenses   |
+| The company expenses | The sum of employees salary and train cost                   |
+| The cost of the trip | The sum of trip distance times the price of electricity per km |
 
 
 
 #### Remarks
 
-
+- Input will be validated.
+- Only the main class will contain System.out.println.
+- Unit test will be provided.
 
 ## Class Diagram
 
@@ -103,6 +107,62 @@ In this section the testcases will be described to test the application.
 ### Test Data
 
 In the following table you'll find all the data that is needed for testing.
+
+#### NormalMeal
+
+| ID         | Input                               | Code                           |
+| ---------- | ----------------------------------- | ------------------------------ |
+| normalMeal | price: 15, portion: 1, drink: Juice | new NormalMeal(15, 2, "Juice") |
+
+#### SpecialMeal
+
+| ID         | Input                              | Code                          |
+| ---------- | ---------------------------------- | ----------------------------- |
+| normalMeal | price: 22, portion: 2, drink: Wine | new NormalMeal(22, 2, "Wine") |
+
+#### FirstClass
+
+| ID          | Input | Code |
+| ----------- | ----- | ---- |
+| firstClass1 |       |      |
+| firstClass2 |       |      |
+
+#### SecondClass
+
+| ID           | Input | Code |
+| ------------ | ----- | ---- |
+| secondClass1 |       |      |
+| secondClass2 |       |      |
+
+#### Trip??
+
+
+
+#### Train
+
+
+
+#### Passenger
+
+
+
+#### Operator
+
+
+
+#### Conductor
+
+
+
+#### Company
+
+
+
+#### Station
+
+
+
+
 
 ### Test Cases
 
