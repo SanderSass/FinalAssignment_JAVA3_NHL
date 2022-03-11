@@ -25,8 +25,8 @@ This project consists of multiple methods to manage the train system. The follow
 - Train
 - Person
   - Passenger
-  - Train conductor
-  - Employee
+  - Conductor
+  - Operator
 - Ticket
   - FirstClassTicket
   - SecondClassTicket
@@ -42,16 +42,45 @@ In this section the in- and output of the application will be described.
 
 In the table below all the input (that the user has to input in order to make the application work) are described.
 
-| Case       | Type    | Conditions |
-| ---------- | ------- | ---------- |
-| Meal name  | String  | not empty  |
-| Meal price | integer | price > 1  |
-|            |         |            |
-|            |         |            |
+| Case                    | Type     | Conditions            |
+| ----------------------- | -------- | --------------------- |
+| Meal name               | String   | not empty             |
+| Meal price              | integer  | price > 1             |
+| Meal drink              | String   | not empty             |
+| Ticket departure        | DateTime | not empty             |
+| Ticket arrive           | DateTime | not empty             |
+| Ticket price            | double   | price > 1             |
+| Passenger name          | String   | not empty             |
+| Passenger birth         | Date     | not empty             |
+| Operator name           | String   | not empty             |
+| Operator birth          | Date     | not empty             |
+| Conductor name          | String   | not empty             |
+| Conductor birth         | Date     | not empty             |
+| Trip registrationNumber | String   | not empty             |
+| Trip departure          | Date     | not empty             |
+| Trip isCancelled?       | Boolean  | Trip cancelled = True |
+| Trip distance           | double   | distance > 1          |
+| Trip isComplete?        | boolean  | Trip arrived = True   |
+| Trip destination        | String   | not empty             |
+| Company name            | String   | not empty             |
+| Station name            | String   | not empty             |
+| Station location:       | String   | not empty             |
 
 
 
 #### Output
+
+| Case | Type |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
 
 
 
