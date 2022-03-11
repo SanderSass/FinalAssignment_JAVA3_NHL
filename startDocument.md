@@ -134,11 +134,15 @@ In the following table you'll find all the data that is needed for testing.
 | secondClass1 |       |      |
 | secondClass2 |       |      |
 
-#### Trip??
+#### Trip
 
 
 
-#### Train
+#### Blauwnet
+
+
+
+#### NS
 
 
 
