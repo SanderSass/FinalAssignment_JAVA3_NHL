@@ -136,15 +136,23 @@ In the following table you'll find all the data that is needed for testing.
 
 #### Trip
 
-
+| ID                 | Input | Code |
+| ------------------ | ----- | ---- |
+| emmenZwolle        |       |      |
+| groningenAmsterdam |       |      |
+| rotterdamUtrecht   |       |      |
 
 #### Blauwnet
 
-
+| ID       | Input                                                        | Code                                                    |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| blauwnet | brand: Blauwnet, model: AB-1, capasity: 200, hasAssignedTrip: TRUE, electricityPerKm: 5, numberOfFirstClassSeat: 50, numberOfSecondClassSeat: 150. | new Blauwnet("Blauwnet", "AB-1", 200, TRUE, 5, 50, 150) |
 
 #### NS
 
-
+| ID   | Input                                                        | Code                                        |
+| ---- | ------------------------------------------------------------ | ------------------------------------------- |
+| NS   | brand: NS, model: BC-1, capasity: 220, hasAssignedTrip: TRUE, electricityPerKm: 4, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 160. | new NS("NS", "BC-1", 210, TRUE, 4, 60, 150) |
 
 #### Passenger
 
