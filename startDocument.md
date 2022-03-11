@@ -1,14 +1,14 @@
-# StartDocument for reset Java Finals application - Train station
+# Start Document for resit Java Finals application - Train Station
 
-Startdocument of:
+Start document of:
 
-- Dung Do Xuan, 
+- Tung Do Xuan, 4679687
 
 - Sander Siimann, 4767667
 
 ## Problem Description
 
-This project consists of multiple methods to manage the train system. The following functionalities will be:
+This program consists of multiple methods to manage the train system. The following functionalities will be:
 
 - Book the train ticket with two options
 - Order the meal with two options
@@ -98,7 +98,7 @@ In the table below all the input (that the user has to input in order to make th
 
 ## Class Diagram
 
-
+![](https://i.imgur.com/NkGIdR9.png))
 
 ## Test plan
 
@@ -136,23 +136,15 @@ In the following table you'll find all the data that is needed for testing.
 
 #### Trip
 
-| ID                 | Input | Code |
-| ------------------ | ----- | ---- |
-| emmenZwolle        |       |      |
-| groningenAmsterdam |       |      |
-| rotterdamUtrecht   |       |      |
+
 
 #### Blauwnet
 
-| ID       | Input                                                        | Code                                                    |
-| -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
-| blauwnet | brand: Blauwnet, model: AB-1, capasity: 200, hasAssignedTrip: TRUE, electricityPerKm: 5, numberOfFirstClassSeat: 50, numberOfSecondClassSeat: 150. | new Blauwnet("Blauwnet", "AB-1", 200, TRUE, 5, 50, 150) |
+
 
 #### NS
 
-| ID   | Input                                                        | Code                                        |
-| ---- | ------------------------------------------------------------ | ------------------------------------------- |
-| NS   | brand: NS, model: BC-1, capasity: 220, hasAssignedTrip: TRUE, electricityPerKm: 4, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 160. | new NS("NS", "BC-1", 210, TRUE, 4, 60, 150) |
+
 
 #### Passenger
 
