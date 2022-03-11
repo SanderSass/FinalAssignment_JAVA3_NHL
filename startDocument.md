@@ -40,6 +40,15 @@ In this section the in- and output of the application will be described.
 
 #### Input
 
+In the table below all the input (that the user has to input in order to make the application work) are described.
+
+| Case       | Type    | Conditions |
+| ---------- | ------- | ---------- |
+| Meal name  | String  | not empty  |
+| Meal price | integer | price > 1  |
+|            |         |            |
+|            |         |            |
+
 
 
 #### Output
