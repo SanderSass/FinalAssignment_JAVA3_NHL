@@ -70,17 +70,17 @@ In the table below all the input (that the user has to input in order to make th
 
 #### Output
 
-| Case | Type |
-| ---- | ---- |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
+| Case                                    | Type                 |
+| --------------------------------------- | -------------------- |
+| List of meals:                          | ArrayList<Meal>      |
+| List of ticket types                    | ArrayLisy<Ticket>    |
+| Passengers from certain trips           | ArrayList<Passenger> |
+| Employees from Companies                | HashSet<Employees>   |
+| Specific Station with list of companies | HashSet<Station>     |
+| The profit of the the company           | double               |
+| The expenses of the company             | double               |
+| The trip cost                           | double               |
+| The total train cost with many trips    | double               |
 
 
 
