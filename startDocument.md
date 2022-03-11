@@ -98,7 +98,7 @@ In the table below all the input (that the user has to input in order to make th
 
 ## Class Diagram
 
-
+![](https://i.imgur.com/NkGIdR9.png)
 
 ## Test plan
 
