@@ -1,23 +1,36 @@
-# StartDocument for Java Finals application resit - Train station
+# StartDocument for reset Java Finals application - Train station
 
 Startdocument of:
 
-- Tung Do Xuan, 4679687
+- Dung Do Xuan, 
 
 - Sander Siimann, 4767667
 
 ## Problem Description
 
-- A train station application that allows the following: 
-  - A passenger can sign up with their name and date of birth.
-  - A passenger can purchase a ticket and buy a meal for their trip. 
-  - A ticket can show departure, arrival date, price, what type of meal, and whether it is a first or a second class. •    
-  - A meal contains 2 options for special and normal meal with portion and drink.
-  - A train station can show all the trips, the profits, expenses, all trip history and add train company. 
-  - A train company can book a ticket, get trip history, add employees, refund tickets, schedule trips, find all employees and cancel the flight.
-  - A trip can add passengers, get trip costs and check ticket availability. 
-  - A train can calculate the cost of the train according to its total distance and fuel consumption.  
-  - An employee can see their salary and it differs between roles (Train conductor, conductor assistance, server).
+This project consists of multiple methods to manage the train system. The following functionalities will be:
+
+- Book the train ticket with two options
+- Order the meal with two options
+- Shows the list of passengers per ticket class
+- Shows
+
+### Classes
+
+- TrainStation
+- TrainCompany
+- Trip
+- Train
+- Person
+  - Passenger
+  - Conductor
+  - Operator
+- Ticket
+  - FirstClassTicket
+  - SecondClassTicket
+- Meal
+  - NormalMeal
+  - SpecialMeal
 
 ### Input & Output
 
@@ -66,14 +79,16 @@ In the table below all the input (that the user has to input in order to make th
 | The expenses of the company             | double               |
 | The trip cost                           | double               |
 | The total train cost with many trips    | double               |
+| Available seats                         | HashSet<Train>       |
 
 #### Calculations
 
-| Case                 | Calculation                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| The company profit   | The sum of all ticket prices subtracted the total expenses   |
-| The company expenses | The sum of employees salary and train cost                   |
-| The cost of the trip | The sum of trip distance times the price of electricity per km |
+| Case                             | Calculation                                                  |
+| -------------------------------- | ------------------------------------------------------------ |
+| The company profit               | The sum of all ticket prices subtracted the total expenses.  |
+| The company expenses             | The sum of employees salary and train cost.                  |
+| The cost of the trip             | The sum of trip distance times the price of electricity per km. |
+| The available seats at the train | The sum of booked ticket subtracted the total seats of the train. |
 
 
 
@@ -99,178 +114,98 @@ In the following table you'll find all the data that is needed for testing.
 
 | ID         | Input                               | Code                           |
 | ---------- | ----------------------------------- | ------------------------------ |
-| normalMeal | price: 15, portion: 1, drink: Juice | new normalMeal(15, 2, "Juice") |
+| normalMeal | price: 15, portion: 1, drink: Juice | new NormalMeal(15, 2, "Juice") |
 
 #### SpecialMeal
 
-| ID          | Input                              | Code                           |
-| ----------- | ---------------------------------- | ------------------------------ |
-| specialMeal | price: 20, portion: 2, drink: Wine | new SpecialMeal(22, 2, "Wine") |
+| ID         | Input                              | Code                          |
+| ---------- | ---------------------------------- | ----------------------------- |
+| normalMeal | price: 22, portion: 2, drink: Wine | new NormalMeal(22, 2, "Wine") |
 
 #### FirstClass
 
-| ID          | Input                                      | Code                                                 |
-| ----------- | ------------------------------------------ | ---------------------------------------------------- |
-| firstClass1 | trip: emmenZwolle, 1300, passenger1        | new FirstClass(emmenZwolle, 1300, passenger1)        |
-| firstClass2 | trip: GroningenAmsterdam, 8000, passenger2 | new FirstClass(GroningenAmsterdam, 8000, passenger2) |
+| ID          | Input                                                        | Code                                                         |
+| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| firstClass1 | trip: emmeZwolle, departureTime: 22-03-2022 13:00:00, martijn | new FirstClass(emmenZwolle, 22-03-2022 13:00:00, martijn)    |
+| firstClass2 | trip: groningenAmsterdam, departureTime: 23-03-2022 12:00:00, jan | new FirstClass(groningenAmsterdam, 23-03-2022 12:00:00, jan) |
+| firstClass3 | trip: rotterdamUtrecht, departureTime: 24-03-2022 11:00:00, sam | new FirstClass(rotterdamUtrecht, 24-03-2022 11:00:00, sam)   |
 
 #### SecondClass
 
-| ID           | Input                                      | Code                                                 |
-| ------------ | ------------------------------------------ | ---------------------------------------------------- |
-| secondClass1 | trip: emmenZwolle, 1300, passenger3        | new FirstClass(emmenZwolle, 1300, passenger3)        |
-| secondClass2 | trip: GroningenAmsterdam, 8000, passenger4 | new FirstClass(GroningenAmsterdam, 8000, passenger4) |
+| ID           | Input                                                        | Code                                                         |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| secondClass1 | trip: emmeZwolle, departureTime: 22-03-2022 13:00:00, tom    | new SecondClass(emmenZwolle, 22-03-2022 13:00:00, tom)       |
+| secondClass2 | trip: groningenAmsterdam, departureTime: 23-03-2022 12:00:00, sander | new SecondClass(emmenZwolle, 23-03-2022 12:00:00, sander)    |
+| secondClass3 | trip: rotterdamUtrecht, departureTime: 24-03-2022 11:00:00, tommy | new SecondClass(rotterdamUtrecht, 24-03-2022 11:00:00, tommy) |
 
 #### Trip
 
-| ID                 | Input                                                        | Code                                        |
-| ------------------ | ------------------------------------------------------------ | ------------------------------------------- |
-| emmenZwolle        | train: train1, tripID: A1, date: 02-03-2022, cancelled: false, distance: 50, complete: false, destination: Zwolle | new Trip(train1, "A1", 02-03-2022, false, ) |
-| groningenAmsterdam | train: train2, tripID: A2, date: 02-03-2022, cancelled: false, distance: 70, complete: false, destination: Amsterdam | new Trip(ns1, "A1", 02-03-2022, false,      |
+| ID                 | Input                                                        | Code                                                         |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| emmenZwolle        | train: blauwnet, tripID: A1, date: 22-03-2022, cancelled: false, distance: 70, complete: false, destination: Zwolle | new Trip(blauwnet, "A1", 22-03-2022, false, 70, false, "Zwolle") |
+| groningenAmsterdam | train: NS, tripID: B1, date: 23-03-2022, cancelled: true, distance: 120, complete: false, destination: Amsterdam | new Trip(NS, "B1", 23-03-2022, true, 120, false, "Amsterdam") |
+| rotterdamUtrecht   | train: NS, tripID: B2, date: 24-03-2022, cancelled: false, distance: 100, complete: true, destination: Utrecht | new Trip(NS, "B2", 24-03-2022, false, 100, true, "Utrecht")  |
+
+#### Blauwnet
+
+| ID       | Input                                                        | Code                                                    |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| blauwnet | brand: Blauwnet, model: AB-1, capasity: 200, hasAssignedTrip: TRUE, electricityPerKm: 5, numberOfFirstClassSeat: 50, numberOfSecondClassSeat: 150. | new Blauwnet("Blauwnet", "AB-1", 200, TRUE, 5, 50, 150) |
+
+#### NS
+
+| ID   | Input                                                        | Code                                        |
+| ---- | ------------------------------------------------------------ | ------------------------------------------- |
+| NS   | brand: NS, model: BC-1, capasity: 220, hasAssignedTrip: TRUE, electricityPerKm: 4, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 160. | new NS("NS", "BC-1", 210, TRUE, 4, 60, 150) |
 
 #### Passenger
 
-| ID         | Input                                     | Code                                 |
-| ---------- | ----------------------------------------- | ------------------------------------ |
-| passenger1 | name: Tom, dateOfBirth: 12/03/2004        | new Passenger("Tom",12032004)        |
-| passenger2 | name: Sander, dateOfBirth: 12/03/2004     | new Passenger("Sander",12032004)     |
-| passenger3 | name: Konstantin, dateOfBirth: 12/03/2004 | new Passenger("Konstantin",12032004) |
-
-
+| ID      | Input                                | Code                               |
+| ------- | ------------------------------------ | ---------------------------------- |
+| martijn | name: Martijn, dateOfBirth: 11-11-90 | new Passenger("Martijn", 11-11-90) |
+| jan     | name: Jan, dateOfBirth: 12-11-90     | new Passenger("Martijn", 12-11-90) |
+| tom     | name: Tom, dateOfBirth: 13-11-90     | new Passenger("Martijn", 13-11-90) |
+| sander  | name: Sander, dateOfBirth: 14-11-90  | new Passenger("Martijn", 14-11-90) |
+| tommy   | name: Tommy, dateOfBirth: 15-11-90   | new Passenger("Martijn", 15-11-90) |
+| sam     | name: Sam, dateOfBirth: 16-11-90     | new Passenger("Martijn", 16-11-90) |
 
 #### Operator
 
-| ID        | Input                                         | Code                                     |
-| --------- | --------------------------------------------- | ---------------------------------------- |
-| operator1 | name: Operator One, dateOfBirth: 22/12/1923   | new Operator("Operator One", 22121923)   |
-| operator2 | name: Operator Two, dateOfBirth: 22/12/1923   | new Operator("Operator Two", 22121923)   |
-| operator3 | name: Operator Three, dateOfBirth: 22/12/1923 | new Operator("Operator Three", 22121923) |
+| ID     | Input                               | Code                             |
+| ------ | ----------------------------------- | -------------------------------- |
+| thomas | name: Thomas, dateOfBirth: 11-11-91 | new Operator("Thomas", 11-11-91) |
+| caspar | name: Caspar, dateOfBirth: 12-11-91 | new Operator("Caspar", 12-11-91) |
+| frank  | name: Frank, dateOfBirth: 13-11-91  | new Operator("Frank", 13-11-91)  |
 
 #### Conductor
 
-| ID         | Input                                          | Code                                       |
-| ---------- | ---------------------------------------------- | ------------------------------------------ |
-| conductor1 | name: Conductor One, dateOfBirth: 22/12/1923   | new Conductor("Conductor One", 22121923)   |
-| conductor2 | name: Conductor Two, dateOfBirth: 22/12/1923   | new Conductor("Conductor Two", 22121923)   |
-| conductor3 | name: Conductor Three, dateOfBirth: 22/12/1923 | new Conductor("Conductor Three", 22121923) |
+| ID    | Input                              | Code                             |
+| ----- | ---------------------------------- | -------------------------------- |
+| chris | name: Chris, dateOfBirth: 11-11-92 | new Conductor("Chris", 11-11-92) |
+| carl  | name: Carl, dateOfBirth: 12-11-92  | new Conductor("Carl", 12-11-92)  |
+| pepe  | name: Pepe, dateOfBirth: 13-11-92  | new Conductor("Pepe", 13-11-92)  |
 
 #### Company
 
-| ID       | Input               | Code                         |
-| -------- | ------------------- | ---------------------------- |
-| company1 | name: Company One   | new Company("Company One")   |
-| company2 | name: Company Two   | new Company("Company Two")   |
-| company3 | name: Company Three | new Company("Company Three") |
+| ID               | Input               | Code                           |
+| ---------------- | ------------------- | ------------------------------ |
+| companyEmmen     | name: Emmen N.V     | new Company("Chris", 11-11-92) |
+| companyGroningen | name: Groningen N.V | new Company("Carl", 12-11-92)  |
+| companyRotterdam | name: Rotterdam N.V | new Company("Pepe", 13-11-92)  |
 
 #### Station
 
-| ID        | Input                                        | Code                                          |
-| --------- | -------------------------------------------- | --------------------------------------------- |
-| emmen     | name: Emmen Station, location: Emmen         | new Station("Emmen Station", "Emmen")         |
-| zwolle    | name: Zwolle Station, location: Zwolle       | new Station("Zwolle Station", "Zwolle")       |
-| groningen | name: Groningen Station, location: Groningen | new Station("Groningen Station", "Groningen") |
-| amsterdam | name: Amsterdam Station, location: Amsterdam | new Station("Amsterdam Station", "Amsterdam") |
-
-#### Train
-
-| ID        | Input                                                        | Code                                                  |
-| --------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| blauwnet1 | brand: Blauwnet, model: AB-1, capacity: 200, hasAssignedTrip: False, electricityPerKm: 4, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 150. | new Train("Blauwnet", "AB-1", 200, False, 4, 60, 150) |
-| ns1       | brand: NS, model: BC-1, capacity: 220, hasAssignedTrip: False, electricityPerKm: 5, numberOfFirstClassSeat: 70, numberOfSecondClassSeat: 150. | new Train("NS", "BC-1", 220, False, 5, 70, 150)       |
+| ID        | Input                                         | Code                                           |
+| --------- | --------------------------------------------- | ---------------------------------------------- |
+| emmen     | name: Emmen Station, location: Emmen          | new Station("Emmen Station", "Emmen")          |
+| groningen | name: Groningen Station, location: Groningen  | new Station("Groningen Station", "Groningen")  |
+| rotterdam | name: Rotterdam Centraal, location: Rotterdam | new Station("Rotterdam Centraal", "Rotterdam") |
+| zwolle    | name: Zwolle Station, location: Zwolle        | new Station("Zwolle Station", "Zwolle")        |
+| amsterdam | name: Amsterdam Centraal, location: Amsterdam | new Station("Amsterdam Centraal", "Amsterdam") |
+| utrecht   | name: Utrecht Centraal, location: Utrecht     | new Station("Utrecht Centraal", "Utrecht")     |
 
 
 
 ### Test Cases
 
 In this section the testcases will be described. Every test case should be executed with the test data as starting point.
-
-#### getAllTrips
-
-|  #   |          Action           | Expected output |
-| :--: | :-----------------------: | :-------------: |
-|  1   |   `emmen.getAllTrips()`   | ArrayList<Trip> |
-|  2   |  `zwolle.getAllTrips()`   | ArrayList<Trip> |
-|  3   | `groningen.getAllTrips()` | ArrayList<Trip> |
-|  4   | `amsterdam.getAllTrips()` | ArrayList<Trip> |
-
-#### addCompany
-
-|  #   |            Action            | Expected output |
-| :--: | :--------------------------: | :-------------: |
-|  1   | `emmen.addCompany(company1)` | ArrayList<Trip> |
-|  2   | `emmen.addCompany(company2)` | ArrayList<Trip> |
-|  3   | `emmen.addCompany(company3)` | ArrayList<Trip> |
-
-#### getTripHistory
-
-|  #   |              Action              | Expected output |
-| :--: | :------------------------------: | :-------------: |
-|  1   | `emmen.getTripHistory(company1)` | ArrayList<Trip> |
-|  2   | `emmen.getTripHistory(company2)` | ArrayList<Trip> |
-|  3   | `emmen.getTripHistory(company3)` | ArrayList<Trip> |
-
-#### bookTicket
-
-|  #   |                 Action                  |    Expected output     |
-| :--: | :-------------------------------------: | :--------------------: |
-|  1   |   `company1.bookTicket(firstClass1)`    | Ticket has been booked |
-|  2   |   `company2.bookTicket(firstClass2)`    | Ticket has been booked |
-|  3   | ```company1.bookTicket(secondClass1)``` | Ticket has been booked |
-|  4   |   `company2.bookTicket(secondClass2)`   | Ticket has been booked |
-
-#### getSalary
-
-|  #   |            Action            | Expected output |
-| :--: | :--------------------------: | :-------------: |
-|  1   |   `operator1.getSalary()`    |                 |
-|  2   |   `operator2.getSalary()`    |                 |
-|  3   | ```conductor1.getSalary()``` |                 |
-|  4   |   `conductor2.getSalary()`   |                 |
-
-#### addEmployee
-
-|  #   |                Action                | Expected output |
-| :--: | :----------------------------------: | :-------------: |
-|  1   |  `company1.addEmployee(operator1)`   |                 |
-|  2   |  `company1.addEmployee(operator2)`   |                 |
-|  3   |  `company2.addEmployee(conductor1)`  |                 |
-|  4   | ``company2.addEmployee(conductor1)`` |                 |
-
-#### refundTickets
-
-|  #   |                Action                | Expected output |
-| :--: | :----------------------------------: | :-------------: |
-|  1   |  `company1.addEmployee(operator1)`   |                 |
-|  2   |  `company1.addEmployee(operator2)`   |                 |
-|  3   |  `company2.addEmployee(conductor1)`  |                 |
-|  4   | ``company2.addEmployee(conductor1)`` |                 |
-
-#### scheduleTrip
-
-|  #   |                    Action                     | Expected output |
-| :--: | :-------------------------------------------: | :-------------: |
-|  1   |     `company1.scheduleTrip(emmenZwolle)`      |                 |
-|  2   |  `company1.scheduleTrip(groningenAmsterdam)`  |                 |
-|  3   |     `company2.scheduleTrip(emmenZwolle)`      |                 |
-|  4   | ``company2.scheduleTrip(groningenAmsterdam)`` |                 |
-
-#### findEmployee
-
-|  #   |               Action                |   Expected output   |
-| :--: | :---------------------------------: | :-----------------: |
-|  1   | `company1.findEmployee(operator1)`  | ArrayList<Employee> |
-|  2   | `company1.findEmployee(operator2)`  | ArrayList<Employee> |
-|  3   | `company1.findEmployee(conductor3)` | ArrayList<Employee> |
-|  4   | `company1.findEmployee(conductor4)` | ArrayList<Employee> |
-
-#### getProfits
-
-|  #   |                    Action                    | Expected output |
-| :--: | :------------------------------------------: | :-------------: |
-|  1   | `company1.getProfits(12/02/2022,19/02/2022)` |                 |
-
-#### getExpenses
-
-|  #   |                    Action                     | Expected output |
-| :--: | :-------------------------------------------: | :-------------: |
-|  1   | `company1.getExpenses(12/02/2022,19/02/2022)` |                 |
