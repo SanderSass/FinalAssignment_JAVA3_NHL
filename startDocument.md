@@ -1,4 +1,4 @@
-# StartDocument for reset Java Finals application - Train station
+# StartDocument for Java Finals application resit - Train station
 
 Startdocument of:
 
@@ -8,14 +8,16 @@ Startdocument of:
 
 ## Problem Description
 
-This project consists of multiple methods to manage the train system. The following functionalities will be:
-
-- Book the train ticket with two options
-- Order the meal with two options
-- Shows the list of passengers per ticket class
-- Shows
-
-- 
+- A train station application that allows the following: 
+  - A passenger can sign up with their name and date of birth.
+  - A passenger can purchase a ticket and buy a meal for their trip. 
+  - A ticket can show departure, arrival date, price, what type of meal, and whether it is a first or a second class. •    
+  - A meal contains 2 options for special and normal meal with portion and drink.
+  - A train station can show all the trips, the profits, expenses, all trip history and add train company. 
+  - A train company can book a ticket, get trip history, add employees, refund tickets, schedule trips, find all employees and cancel the flight.
+  - A trip can add passengers, get trip costs and check ticket availability. 
+  - A train can calculate the cost of the train according to its total distance and fuel consumption.  
+  - An employee can see their salary and it differs between roles (Train conductor, conductor assistance, server).
 
 ### Input & Output
 
