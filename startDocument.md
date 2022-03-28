@@ -11,12 +11,12 @@ Startdocument of:
 - A train station application that allows the following: 
   - A passenger can sign up with their name and date of birth.
   - A passenger can purchase a ticket and buy a meal for their trip. 
-  - A ticket can show departure, arrival date, price, what type of meal, and whether it is a first or a second class. •    
+  - A ticket can show departure, arrival date, price, what type of meal, and whether it is a first or a second class.   
   - A meal contains 2 options for special and normal meal with portion and drink.
   - A train station can show all the trips, the profits, expenses, all trip history and add train company. 
   - A train company can book a ticket, get trip history, add employees, refund tickets, schedule trips, find all employees and cancel the flight.
-  - A trip can add passengers, get trip costs and check ticket availability. 
-  - A train can calculate the cost of the train according to its total distance and fuel consumption.  
+  - A company can add passengers, get trip costs and check ticket availability. (Through the company)
+    - A company can calculate the cost of the train according to its total distance and electricity consumption. (The company/train station should calculate the cost) 
   - An employee can see their salary and it differs between roles (Train conductor, conductor assistance, server).
 
 ### Input & Output
@@ -27,29 +27,29 @@ In this section the in- and output of the application will be described.
 
 In the table below all the input (that the user has to input in order to make the application work) are described.
 
-| Case                    | Type     | Conditions            |
-| ----------------------- | -------- | --------------------- |
-| Meal name               | String   | not empty             |
-| Meal price              | integer  | price > 1             |
-| Meal drink              | String   | not empty             |
-| Ticket departure        | DateTime | not empty             |
-| Ticket arrive           | DateTime | not empty             |
-| Ticket price            | double   | price > 1             |
-| Passenger name          | String   | not empty             |
-| Passenger birth         | Date     | not empty             |
-| Operator name           | String   | not empty             |
-| Operator birth          | Date     | not empty             |
-| Conductor name          | String   | not empty             |
-| Conductor birth         | Date     | not empty             |
-| Trip registrationNumber | String   | not empty             |
-| Trip departure          | Date     | not empty             |
-| Trip isCancelled?       | Boolean  | Trip cancelled = True |
-| Trip distance           | double   | distance > 1          |
-| Trip isComplete?        | boolean  | Trip arrived = True   |
-| Trip destination        | String   | not empty             |
-| Company name            | String   | not empty             |
-| Station name            | String   | not empty             |
-| Station location:       | String   | not empty             |
+| Case              | Type          | Conditions                                        |
+| ----------------- | ------------- | ------------------------------------------------- |
+| Meal name         | String        | string >= 5                                       |
+| Meal price        | integer       | price >= 1                                        |
+| Meal drink        | String        | string >= 5                                       |
+| Ticket departure  | LocalDateTime | LocalDateTime <= time <= LocalDateTime + 6 Months |
+| Ticket arrive     | LocalDateTime | LocalDateTime <= time <= LocalDateTime + 6 Months |
+| Ticket price      | double        | price >= 5                                        |
+| Passenger name    | String        | string >= 1                                       |
+| Passenger birth   | LocalDate     | time <= LocalDate                                 |
+| Operator name     | String        | string >= 1                                       |
+| Operator birth    | LocalDate     | time <= LocalDate                                 |
+| Conductor name    | String        | string >=  1                                      |
+| Conductor birth   | LocalDate     | time <= LocalDate                                 |
+| Trip id           | String        | string >= 4                                       |
+| Trip departure    | LocalDate     | LocalDateTime <= time <= LocalDateTime + 6 Months |
+| Trip isCancelled? | boolean       | not empty                                         |
+| Trip distance     | double        | distance > 1                                      |
+| Trip isComplete?  | boolean       | not empty                                         |
+| Trip destination  | String        | string >= 4                                       |
+| Company name      | String        | string >= 4                                       |
+| Station name      | String        | string >= 4                                       |
+| Station location: | String        | string >= 4                                       |
 
 
 
@@ -85,7 +85,7 @@ In the table below all the input (that the user has to input in order to make th
 
 ## Class Diagram
 
-![](https://i.imgur.com/NkGIdR9.png)
+![](https://i.imgur.com/a4pIvuJ.png))
 
 ## Test plan
 
@@ -135,6 +135,8 @@ In the following table you'll find all the data that is needed for testing.
 | passenger1 | name: Tom, dateOfBirth: 12/03/2004        | new Passenger("Tom",12032004)        |
 | passenger2 | name: Sander, dateOfBirth: 12/03/2004     | new Passenger("Sander",12032004)     |
 | passenger3 | name: Konstantin, dateOfBirth: 12/03/2004 | new Passenger("Konstantin",12032004) |
+| passenger4 | name: TomTom, dateOfBirth: 12/03/2004     | new Passenger("TomTom",12032009)     |
+| passenger5 | name: SassPass, dateOfBirth: 12/03/1980   | new Passenger("TomTom",12031980)     |
 
 
 
@@ -164,19 +166,27 @@ In the following table you'll find all the data that is needed for testing.
 
 #### Station
 
-| ID        | Input                                        | Code                                          |
-| --------- | -------------------------------------------- | --------------------------------------------- |
-| emmen     | name: Emmen Station, location: Emmen         | new Station("Emmen Station", "Emmen")         |
-| zwolle    | name: Zwolle Station, location: Zwolle       | new Station("Zwolle Station", "Zwolle")       |
-| groningen | name: Groningen Station, location: Groningen | new Station("Groningen Station", "Groningen") |
-| amsterdam | name: Amsterdam Station, location: Amsterdam | new Station("Amsterdam Station", "Amsterdam") |
+| ID             | Input                                                  | Code                                                    |
+| -------------- | ------------------------------------------------------ | ------------------------------------------------------- |
+| emmen          | name: Emmen Station, location: Emmen                   | new Station("Emmen Station", "Emmen")                   |
+| zwolle         | name: Zwolle Station, location: Zwolle                 | new Station("Zwolle Station", "Zwolle")                 |
+| groningen      | name: Groningen Station, location: Groningen           | new Station("Groningen Station", "Groningen")           |
+| amsterdam      | name: Amsterdam Station, location: Amsterdam           | new Station("Amsterdam Station", "Amsterdam")           |
+| ultretch       | name: Ultretch Station, location: Ultretch             | new Station("Ultretch Station", "Ultretch")             |
+| leeuwarden     | name: Leeuwarden Station, location: Leeuwarden         | new Station("Leeuwarden Station", "Leeuwarden")         |
+| rotterdam      | name: Rotterdam Station, location: Rotterdam           | new Station("Rotterdam Station", "Rotterdam")           |
+| nieuwAmsterdam | name: NieuwAmsterdam Station, location: NieuwAmsterdam | new Station("NieuwAmsterdam Station", "NieuwAmsterdam") |
 
 #### Train
 
 | ID        | Input                                                        | Code                                                  |
 | --------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| blauwnet1 | brand: Blauwnet, model: AB-1, capacity: 200, hasAssignedTrip: False, electricityPerKm: 4, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 150. | new Train("Blauwnet", "AB-1", 200, False, 4, 60, 150) |
-| ns1       | brand: NS, model: BC-1, capacity: 220, hasAssignedTrip: False, electricityPerKm: 5, numberOfFirstClassSeat: 70, numberOfSecondClassSeat: 150. | new Train("NS", "BC-1", 220, False, 5, 70, 150)       |
+| blauwnet1 | brand: Blauwnet, model: AB-1, capacity: 200, hasAssignedTrip: False, electricityPerKm: 10, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 150. | new Train("Blauwnet", "AB-1", 200, False, 4, 60, 150) |
+| blauwnet2 | brand: Blauwnet, model: AB-2, capacity: 250, hasAssignedTrip: False, electricityPerKm: 5, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 150. | new Train("Blauwnet", "AB-2", 250, False, 4, 60, 150) |
+| blauwnet3 | brand: Blauwnet, model: AB-3, capacity: 300, hasAssignedTrip: False, electricityPerKm: 2, numberOfFirstClassSeat: 60, numberOfSecondClassSeat: 150. | new Train("Blauwnet", "AB-3", 300, False, 4, 60, 150) |
+| ns1       | brand: NS, model: BC-1, capacity: 220, hasAssignedTrip: False, electricityPerKm: 15, numberOfFirstClassSeat: 70, numberOfSecondClassSeat: 150. | new Train("NS", "BC-1", 220, False, 5, 70, 150)       |
+| ns2       | brand: NS, model: BC-2, capacity: 260, hasAssignedTrip: False, electricityPerKm: 10, numberOfFirstClassSeat: 70, numberOfSecondClassSeat: 150. | new Train("NS", "BC-2", 260, False, 5, 70, 150)       |
+| ns3       | brand: NS, model: BC-3, capacity: 280, hasAssignedTrip: False, electricityPerKm: 7, numberOfFirstClassSeat: 70, numberOfSecondClassSeat: 150. | new Train("NS", "BC-3", 280, False, 5, 70, 150)       |
 
 
 
@@ -238,12 +248,12 @@ In this section the testcases will be described. Every test case should be execu
 
 #### refundTickets
 
-|  #   |                Action                | Expected output |
-| :--: | :----------------------------------: | :-------------: |
-|  1   |  `company1.addEmployee(operator1)`   |                 |
-|  2   |  `company1.addEmployee(operator2)`   |                 |
-|  3   |  `company2.addEmployee(conductor1)`  |                 |
-|  4   | ``company2.addEmployee(conductor1)`` |                 |
+|  #   |                 Action                 | Expected output |
+| :--: | :------------------------------------: | :-------------: |
+|  1   |  `company1.refundTickets(operator1)`   |                 |
+|  2   |  `company1.refundTickets(operator2)`   |                 |
+|  3   |  `company2.refundTickets(conductor1)`  |                 |
+|  4   | ``company2.refundTickets(conductor1)`` |                 |
 
 #### scheduleTrip
 
