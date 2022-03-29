@@ -123,10 +123,15 @@ In the following table you'll find all the data that is needed for testing.
 
 #### Trip
 
-| ID                 | Input                                                        | Code                                        |
-| ------------------ | ------------------------------------------------------------ | ------------------------------------------- |
-| emmenZwolle        | train: train1, tripID: A1, date: 02-03-2022, cancelled: false, distance: 50, complete: false, destination: Zwolle | new Trip(train1, "A1", 02-03-2022, false, ) |
-| groningenAmsterdam | train: train2, tripID: A2, date: 02-03-2022, cancelled: false, distance: 70, complete: false, destination: Amsterdam | new Trip(ns1, "A1", 02-03-2022, false,      |
+| ID                      | Input                                                        | Code                                                       |
+| ----------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| emmenZwolle             | train: train1, tripID: A1, departureDate: 01-02-2022, cancelled: false, distance: 50, complete: false, destination: Zwolle | new Trip(blauwnet1, "A1", 01-02-2022, false, 'Zwolle' )    |
+| groningenAmsterdam      | train: train2, tripID: A2, departureDate: 03-04-2022, cancelled: false, distance: 70, complete: false, destination: Amsterdam | new Trip(blauwnet2, "A1", 03-04-2022, false, 'Amsterdam')  |
+| ultretchLeewarden       | train: train2, tripID: A2, departureDate: 05-06-2022, cancelled: false, distance: 70, complete: false, destination: Leeuwarden | new Trip(blauwnet3, "A1", 05-06-2022, false, 'Leeuwarden') |
+| rotterdamNieuwAmsterdam | train: train2, tripID: A2, departureDate: 07-08-2022, cancelled: false, distance: 70, complete: false, destination: NiewAmsterdam | new Trip(ns1, "A1", 07-08-2022, false, 'NiewAmsterdam')    |
+| emmenAmsterdam          | train: train2, tripID: A2, departureDate: 09-10-2022, cancelled: false, distance: 70, complete: false, destination: Amsterdam | new Trip(ns2, "A1", 09-10-2022, false, 'Amsterdam')        |
+| ultretchAmsterdam       | train: train2, tripID: A2, departureDate: 10-11-2022, cancelled: false, distance: 70, complete: false, destination: Amsterdam | new Trip(ns3, "A1", 10-11-2022, false, 'Amsterdam')        |
+| rotterdamAmsterdam      | train: train2, tripID: A2, departureDate: 02-12-2022, cancelled: false, distance: 70, complete: false, destination: Amsterdam | new Trip(ns3, "A1", 02-12-2022, false, 'Amsterdam')        |
 
 #### Passenger
 
@@ -196,91 +201,83 @@ In this section the testcases will be described. Every test case should be execu
 
 #### getAllTrips
 
-|  #   |          Action           | Expected output |
-| :--: | :-----------------------: | :-------------: |
-|  1   |   `emmen.getAllTrips()`   | ArrayList<Trip> |
-|  2   |  `zwolle.getAllTrips()`   | ArrayList<Trip> |
-|  3   | `groningen.getAllTrips()` | ArrayList<Trip> |
-|  4   | `amsterdam.getAllTrips()` | ArrayList<Trip> |
+|  #   |          Action           |                    Expected output                    |
+| :--: | :-----------------------: | :---------------------------------------------------: |
+|  1   |   `emmen.getAllTrips()`   |              emmenZwolle, emmenAmsterdam              |
+|  2   |  `zwolle.getAllTrips()`   |                      emmenZwolle                      |
+|  3   | `groningen.getAllTrips()` |                  groningenAmsterdam                   |
+|  4   | `amsterdam.getAllTrips()` | emmenAmsterdam, ultretchAmsterdam, rotterdamAmsterdam |
 
 #### addCompany
 
-|  #   |            Action            | Expected output |
-| :--: | :--------------------------: | :-------------: |
-|  1   | `emmen.addCompany(company1)` | ArrayList<Trip> |
-|  2   | `emmen.addCompany(company2)` | ArrayList<Trip> |
-|  3   | `emmen.addCompany(company3)` | ArrayList<Trip> |
+|  #   |              Action              | Expected output |
+| :--: | :------------------------------: | :-------------: |
+|  1   |   `emmen.addCompany(company1)`   |    company1     |
+|  2   | `amsterdam.addCompany(company2)` |    company2     |
+|  3   | `groningen.addCompany(company3)` |    company3     |
+|  4   | `groningen.addCompany(company4)` |    company4     |
 
 #### getTripHistory
 
-|  #   |              Action              | Expected output |
-| :--: | :------------------------------: | :-------------: |
-|  1   | `emmen.getTripHistory(company1)` | ArrayList<Trip> |
-|  2   | `emmen.getTripHistory(company2)` | ArrayList<Trip> |
-|  3   | `emmen.getTripHistory(company3)` | ArrayList<Trip> |
+|  #   |                Action                |                    Expected output                     |
+| :--: | :----------------------------------: | :----------------------------------------------------: |
+|  1   |   `emmen.getTripHistory(company1)`   |              emmenZwolle, emmenAmsterdam               |
+|  2   | `amsterdam.getTripHistory(company2)` | emmmenAmsterdam, ultretchAmsterdam, rotterdamAmsterdam |
+|  3   | `groningen.getTripHistory(company3)` |                   groningenAmsterdam                   |
 
 #### bookTicket
 
-|  #   |                 Action                  |    Expected output     |
-| :--: | :-------------------------------------: | :--------------------: |
-|  1   |   `company1.bookTicket(firstClass1)`    | Ticket has been booked |
-|  2   |   `company2.bookTicket(firstClass2)`    | Ticket has been booked |
-|  3   | ```company1.bookTicket(secondClass1)``` | Ticket has been booked |
-|  4   |   `company2.bookTicket(secondClass2)`   | Ticket has been booked |
+|  #   |                 Action                  | Expected output |
+| :--: | :-------------------------------------: | :-------------: |
+|  1   |   `company1.bookTicket(firstClass1)`    |   firstClass1   |
+|  2   |   `company2.bookTicket(firstClass2)`    |   firstClass2   |
+|  3   | ```company1.bookTicket(secondClass1)``` |  secondClass1   |
+|  4   |   `company2.bookTicket(secondClass2)`   |  secondClass2   |
 
 #### getSalary
 
 |  #   |            Action            | Expected output |
 | :--: | :--------------------------: | :-------------: |
-|  1   |   `operator1.getSalary()`    |                 |
-|  2   |   `operator2.getSalary()`    |                 |
-|  3   | ```conductor1.getSalary()``` |                 |
-|  4   |   `conductor2.getSalary()`   |                 |
+|  1   |   `operator1.getSalary()`    |      100.0      |
+|  2   |   `operator2.getSalary()`    |      100.0      |
+|  3   | ```conductor1.getSalary()``` |      200.0      |
+|  4   |   `conductor2.getSalary()`   |      200.0      |
 
 #### addEmployee
 
 |  #   |                Action                | Expected output |
 | :--: | :----------------------------------: | :-------------: |
-|  1   |  `company1.addEmployee(operator1)`   |                 |
-|  2   |  `company1.addEmployee(operator2)`   |                 |
-|  3   |  `company2.addEmployee(conductor1)`  |                 |
-|  4   | ``company2.addEmployee(conductor1)`` |                 |
-
-#### refundTickets
-
-|  #   |                 Action                 | Expected output |
-| :--: | :------------------------------------: | :-------------: |
-|  1   |  `company1.refundTickets(operator1)`   |                 |
-|  2   |  `company1.refundTickets(operator2)`   |                 |
-|  3   |  `company2.refundTickets(conductor1)`  |                 |
-|  4   | ``company2.refundTickets(conductor1)`` |                 |
+|  1   |  `company1.addEmployee(operator1)`   |    operator1    |
+|  2   |  `company1.addEmployee(operator2)`   |    operator2    |
+|  3   |  `company2.addEmployee(conductor1)`  |   conductor1    |
+|  4   | ``company2.addEmployee(conductor2)`` |   conductor2    |
 
 #### scheduleTrip
 
-|  #   |                    Action                     | Expected output |
-| :--: | :-------------------------------------------: | :-------------: |
-|  1   |     `company1.scheduleTrip(emmenZwolle)`      |                 |
-|  2   |  `company1.scheduleTrip(groningenAmsterdam)`  |                 |
-|  3   |     `company2.scheduleTrip(emmenZwolle)`      |                 |
-|  4   | ``company2.scheduleTrip(groningenAmsterdam)`` |                 |
+|  #   |                    Action                     |  Expected output   |
+| :--: | :-------------------------------------------: | :----------------: |
+|  1   |     `company1.scheduleTrip(emmenZwolle)`      |    emmenZwolle     |
+|  2   |  `company1.scheduleTrip(groningenAmsterdam)`  | groningenAmsterdam |
+|  3   |     `company2.scheduleTrip(emmenZwolle)`      |    emmenZwolle     |
+|  4   | ``company2.scheduleTrip(groningenAmsterdam)`` | groningenAmsterdam |
 
 #### findEmployee
 
-|  #   |               Action                |   Expected output   |
-| :--: | :---------------------------------: | :-----------------: |
-|  1   | `company1.findEmployee(operator1)`  | ArrayList<Employee> |
-|  2   | `company1.findEmployee(operator2)`  | ArrayList<Employee> |
-|  3   | `company1.findEmployee(conductor3)` | ArrayList<Employee> |
-|  4   | `company1.findEmployee(conductor4)` | ArrayList<Employee> |
+|  #   |          Action           | Expected output |
+| :--: | :-----------------------: | :-------------: |
+|  1   | `company1.findEmployee()` |    operator1    |
+|  2   | `company2.findEmployee()` |    operator2    |
+|  3   | `company3.findEmployee()` |   conductor3    |
+|  4   | `company4.findEmployee()` |   conductor4    |
 
 #### getProfits
 
-|  #   |                    Action                    | Expected output |
-| :--: | :------------------------------------------: | :-------------: |
-|  1   | `company1.getProfits(12/02/2022,19/02/2022)` |                 |
+|  #   |                   Action                    | Expected output |
+| :--: | :-----------------------------------------: | :-------------: |
+|  1   | `company1.getProfits(1/01/2022,31/12/2022)` |       550       |
 
 #### getExpenses
 
 |  #   |                    Action                     | Expected output |
 | :--: | :-------------------------------------------: | :-------------: |
-|  1   | `company1.getExpenses(12/02/2022,19/02/2022)` |                 |
+|  1   | `company1.getExpenses(12/02/2022,19/02/2022)` |       200       |
