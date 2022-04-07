@@ -1,4 +1,4 @@
-package com.company.Meals;
+package com.company.Meal;
 
 public class SpecialMeal {
 }

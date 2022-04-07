@@ -1,7 +1,7 @@
 package com.company;
 
-import com.company.Persons.Employee;
-import com.company.Persons.Passenger;
+import com.company.Person.Employee;
+import com.company.Person.Passenger;
 import com.company.Trains.Train;
 
 import java.time.LocalDateTime;

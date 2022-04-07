@@ -1,4 +1,4 @@
-package com.company.Persons;
+package com.company.Person;
 
 public interface Task {
     public void doTask();

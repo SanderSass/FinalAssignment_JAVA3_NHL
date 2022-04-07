@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.Persons.Employee;
+import com.company.Person.Employee;
 import com.company.Trains.Train;
 
 import java.util.ArrayList;
@@ -12,11 +12,12 @@ public class Company {
     private ArrayList<Trip> trips;
     private ArrayList<Trip> completedTrips;
 
-    public Company(String name, ArrayList<Train> trains, ArrayList<Employee> employees, ArrayList<Trip> trips) {
+    public Company(String name, ArrayList<Train> trains, ArrayList<Employee> employees, ArrayList<Trip> trips, ArrayList<Trip> completedTrips) {
         this.name = name;
         this.trains = trains;
         this.employees = employees;
         this.trips = trips;
+        this.completedTrips = completedTrips;
     }
 
     public String getName() {

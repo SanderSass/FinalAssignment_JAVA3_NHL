@@ -1,6 +1,6 @@
-package com.company.Persons;
+package com.company.Person;
 
-import com.company.Meals.Meal;
+import com.company.Meal.Meal;
 import com.company.Ticket.Ticket;
 
 import java.time.LocalDate;

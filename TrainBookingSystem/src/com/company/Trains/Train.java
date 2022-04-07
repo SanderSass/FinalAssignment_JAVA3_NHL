@@ -1,6 +1,6 @@
 package com.company.Trains;
 
-abstract class Train {
+public abstract class Train {
     private String brand;
     private String model;
     private int capacity;

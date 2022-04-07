@@ -1,15 +1,14 @@
-package com.company.Persons;
+package com.company.Person;
+
+import com.company.Meal.Meal;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-abstract class Employee {
+abstract class Person {
     private String name;
     private LocalDate dateOfBirth;
-
-//    public Employee(String name, LocalDate dateOfBirth) {
-//        this.name = name;
-//        this.dateOfBirth = dateOfBirth;
-//    }
+    private ArrayList<Meal> meals;
 
     public String getName() {
         return name;
@@ -25,5 +24,13 @@ abstract class Employee {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public ArrayList<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(ArrayList<Meal> meals) {
+        this.meals = meals;
     }
 }
