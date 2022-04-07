@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.Persons.Employee;
+import com.company.Trains.Train;
+
 import java.util.ArrayList;
 
 public class Company {

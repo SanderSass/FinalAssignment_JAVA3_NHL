@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Trains;
 
 abstract class Train {
     private String brand;

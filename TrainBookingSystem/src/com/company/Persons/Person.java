@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Persons;
+
+import com.company.Meals.Meal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.company;
+package com.company.Meals;
 
-abstract class Meal {
+public abstract class Meal {
     private int price;
     private int portion;
     private String drink;

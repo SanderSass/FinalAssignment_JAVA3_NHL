@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.Persons.Employee;
+import com.company.Persons.Passenger;
+import com.company.Trains.Train;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
