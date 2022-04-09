@@ -1,4 +1,4 @@
-package com.company.Ticket;
+package com.company.Main;
 
 abstract public class Ticket {
 }

@@ -1,4 +1,4 @@
-package com.company.Person;
+package com.company.Main;
 
 public class Conductor extends Employee{
 }

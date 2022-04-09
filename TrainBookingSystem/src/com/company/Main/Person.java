@@ -1,15 +1,15 @@
-package com.company.Person;
-
-import com.company.Meal.Meal;
+package com.company.Main;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 
-abstract class Person {
-    private String name;
-    private LocalDate dateOfBirth;
-    private ArrayList<Meal> meals;
+public abstract class Person {
+    protected String name;
+    protected LocalDate dateOfBirth;
+    protected HashSet<Meal> meals;
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -26,11 +26,11 @@ abstract class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public ArrayList<Meal> getMeals() {
+    public HashSet<Meal> getMeals() {
         return meals;
     }
 
-    public void setMeals(ArrayList<Meal> meals) {
+    public void setMeals(HashSet<Meal> meals) {
         this.meals = meals;
     }
 }

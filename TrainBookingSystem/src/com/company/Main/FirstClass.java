@@ -1,4 +1,4 @@
-package com.company.Ticket;
+package com.company.Main;
 
 public class FirstClass {
 }
