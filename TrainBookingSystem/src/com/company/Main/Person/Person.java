@@ -1,14 +1,13 @@
 package com.company.Main.Person;
 
 import com.company.Main.Meal.Meal;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 
 public abstract class Person {
     protected String name;
     protected LocalDate dateOfBirth;
-    protected HashSet<Meal> meals;
+    protected HashSet<Meal> meal;
 
     // Getters and setters
     public String getName() {
@@ -27,11 +26,11 @@ public abstract class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public HashSet<Meal> getMeals() {
-        return meals;
+    public HashSet<Meal> getMeal() {
+        return meal;
     }
 
-    public void setMeals(HashSet<Meal> meals) {
-        this.meals = meals;
+    public void setMeal(HashSet<Meal> meal) {
+        this.meal = meal;
     }
 }

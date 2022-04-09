@@ -1,7 +1,5 @@
 package com.company.Main;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 public class Train {
     private String brand;
     private String model;

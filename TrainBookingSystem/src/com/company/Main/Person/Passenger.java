@@ -4,19 +4,17 @@ import com.company.Main.Meal.Meal;
 import com.company.Main.Ticket.Ticket;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.Period;
+import java.util.HashSet;
 
-public class Passenger {
-    private String name;
-    private LocalDate dateOfBirth;
-    private Ticket ticket;
-    private ArrayList<Meal> passengerMeals;
+public class Passenger extends Person {
+    private HashSet<Ticket> boughtTicket;
 
-    public Passenger(String name, LocalDate dateOfBirth, Ticket ticket, ArrayList<Meal> passengerMeals) {
+    public Passenger(String name, LocalDate dateOfBirth) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.ticket = ticket;
-        this.passengerMeals = passengerMeals;
+        this.boughtTicket = new HashSet<>();
+        this.meal = new HashSet<>();
     }
 
     public String getName() {
@@ -35,19 +33,16 @@ public class Passenger {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Ticket getTicket() {
-        return ticket;
+    public int getAge() {
+        LocalDate curDate = LocalDate.now();
+        if ((dateOfBirth != null && (curDate != null)))
+        {
+            int age = Period.between(dateOfBirth, curDate).getYears();
+            return age;
+        }
+        return 0;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
-
-    public ArrayList<Meal> getPassengerMeals() {
-        return passengerMeals;
-    }
-
-    public void setPassengerMeals(ArrayList<Meal> passengerMeals) {
-        this.passengerMeals = passengerMeals;
-    }
+    // TODO finish this method
+    //public String buyFirstClassTicket() {}
 }

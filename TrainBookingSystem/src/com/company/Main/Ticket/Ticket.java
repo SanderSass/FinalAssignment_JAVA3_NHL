@@ -1,6 +1,9 @@
 package com.company.Main.Ticket;
 
+import com.company.Main.Person.Passenger;
+
 import java.time.LocalDate;
+import java.time.Period;
 
 public abstract class Ticket
 {
@@ -68,4 +71,6 @@ public abstract class Ticket
     public void setMaxSpecialMealDrink(int maxSpecialMealDrink) {
         this.maxSpecialMealDrink = maxSpecialMealDrink;
     }
+
+    public abstract double getDiscountedPrice(Passenger passenger);
 }
