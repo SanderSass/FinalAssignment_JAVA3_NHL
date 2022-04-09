@@ -1,6 +1,7 @@
 package com.company.Main;
 
 import com.company.Exceptions.ExistingCompanyException;
+import com.company.Main.Destination.Destination;
 
 import java.util.HashSet;
 

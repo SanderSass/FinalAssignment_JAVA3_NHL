@@ -1,4 +1,4 @@
-package com.company.Main;
+package com.company.Main.Meal;
 
 public abstract class Meal {
     private int price;

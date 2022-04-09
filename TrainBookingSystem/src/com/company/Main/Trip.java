@@ -1,9 +1,11 @@
 package com.company.Main;
 
+import com.company.Main.Destination.Destination;
+import com.company.Main.Person.Employee;
+import com.company.Main.Person.Passenger;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Trip {

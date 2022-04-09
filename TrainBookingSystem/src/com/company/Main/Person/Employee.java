@@ -1,4 +1,6 @@
-package com.company.Main;
+package com.company.Main.Person;
+
+import com.company.Main.Person.Person;
 
 import java.time.LocalDate;
 

@@ -1,7 +1,8 @@
-package com.company.Main;
+package com.company.Main.Person;
+
+import com.company.Main.Meal.Meal;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public abstract class Person {

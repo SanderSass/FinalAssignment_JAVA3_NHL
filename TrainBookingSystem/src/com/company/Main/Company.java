@@ -2,6 +2,7 @@ package com.company.Main;
 
 import com.company.Exceptions.ExistingEmployeeException;
 import com.company.Exceptions.NotEnoughCrewMembersException;
+import com.company.Main.Person.Employee;
 
 import java.util.HashSet;
 

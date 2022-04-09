@@ -1,4 +1,6 @@
-package com.company.Main;
+package com.company.Main.Ticket;
+
+import com.company.Main.Ticket.Ticket;
 
 import java.time.LocalDate;
 
