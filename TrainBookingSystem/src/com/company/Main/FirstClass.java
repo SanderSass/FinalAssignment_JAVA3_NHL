@@ -1,4 +1,4 @@
 package com.company.Main;
 
-public class FirstClass {
+public class FirstClass extends Ticket {
 }

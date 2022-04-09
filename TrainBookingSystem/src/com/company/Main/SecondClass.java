@@ -1,4 +1,9 @@
 package com.company.Main;
 
-public class SecondClass {
+import java.time.LocalDate;
+
+public class SecondClass extends Ticket {
+    public SecondClass(double price, LocalDate departureDate, LocalDate arrivalDate, String departureCity, String arrivalCity) {
+
+    }
 }
