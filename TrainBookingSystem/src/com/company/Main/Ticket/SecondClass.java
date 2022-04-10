@@ -7,11 +7,13 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class SecondClass extends Ticket {
-    public SecondClass(double price, LocalDate departureDate, LocalDate arrivalDate)
+    public SecondClass(int seatNo, String tripNo, LocalDate departureDate, LocalDate arrivalDate)
     {
         this.price = 50;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
+        this.seatNo = seatNo;
+        this.tripNo = tripNo;
     }
 
     /**
