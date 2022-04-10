@@ -2,9 +2,9 @@ package com.company.Main.Meal;
 
 public class SpecialMeal extends Meal {
 
-    public SpecialMeal(int price, int portion, String drink)
+    public SpecialMeal(int portion, String drink)
     {
-        this.price = price;
+        this.price = 50;
         this.portion = portion;
         this.drink = drink;
         this.specialMeal = true;
