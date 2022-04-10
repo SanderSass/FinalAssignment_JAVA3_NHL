@@ -1,9 +1,6 @@
 package com.company.Main.Person;
 
-import com.company.Exceptions.AlreadyHasTicketException;
-import com.company.Main.Company;
 import com.company.Main.Meal.Meal;
-import com.company.Main.Ticket.SecondClass;
 import com.company.Main.Ticket.Ticket;
 
 import java.time.LocalDate;
@@ -55,6 +52,35 @@ public class Passenger extends Person {
             {
                 condition = true;
                 break;
+            }
+        }
+        return condition;
+    }
+
+    /**
+     * @return 
+     */
+    public boolean checkMeal(Ticket ticket)
+    {
+        int numberOfPortions = 0;
+        boolean condition = true;
+        for(Meal meal : this.meal)
+        {
+            if(meal.getSpecialMeal().equals("Normal meal"))
+            {
+                numberOfPortions++;
+                if (meal.getPortion() > ticket.getMaxNormalMeal())//??
+                {
+                    condition = false;
+                }
+            }
+            if(meal.getSpecialMeal().equals("Special meal"))
+            {
+                numberOfPortions++;
+                if (meal.getPortion() > ticket.getMaxSpecialMeal())//??
+                {
+                    condition = false;
+                }
             }
         }
         return condition;

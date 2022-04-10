@@ -4,11 +4,15 @@ import com.company.Main.Person.Passenger;
 import java.time.LocalDate;
 
 public class FirstClass extends Ticket {
-    public FirstClass(double price, LocalDate departureDate, LocalDate arrivalDate)
+    public FirstClass(int seatNo, String tripNo, LocalDate departureDate, LocalDate arrivalDate)
     {
         this.price = 100;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
+        this.seatNo = seatNo;
+        this.tripNo = tripNo;
+        this.maxNormalMeal = 2;
+        this.maxNormalMealDrink = 2;
     }
 
     /**

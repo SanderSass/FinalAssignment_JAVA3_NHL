@@ -4,7 +4,7 @@ public abstract class Meal {
     protected int price;
     protected int portion;
     protected String drink;
-    protected boolean specialMeal;
+    protected String specialMeal;
 
     public int getPrice() {
         return price;
@@ -30,11 +30,11 @@ public abstract class Meal {
         this.drink = drink;
     }
 
-    public boolean isSpecialMeal() {
+    public String getSpecialMeal() {
         return specialMeal;
     }
 
-    public void setSpecialMeal(boolean specialMeal) {
+    public void setSpecialMeal(String specialMeal) {
         this.specialMeal = specialMeal;
     }
 }

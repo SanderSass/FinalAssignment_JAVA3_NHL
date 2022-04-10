@@ -14,6 +14,8 @@ public class SecondClass extends Ticket {
         this.arrivalDate = arrivalDate;
         this.seatNo = seatNo;
         this.tripNo = tripNo;
+        this.maxNormalMeal = 1;
+        this.maxNormalMealDrink = 1;
     }
 
     /**
