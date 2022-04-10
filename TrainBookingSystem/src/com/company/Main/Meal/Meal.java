@@ -1,10 +1,10 @@
 package com.company.Main.Meal;
 
 public abstract class Meal {
-    private int price;
-    private int portion;
-    private String drink;
-    private boolean specialMeal;
+    protected int price;
+    protected int portion;
+    protected String drink;
+    protected boolean specialMeal;
 
     public int getPrice() {
         return price;
