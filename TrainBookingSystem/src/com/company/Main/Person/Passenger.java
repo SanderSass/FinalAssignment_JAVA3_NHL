@@ -1,6 +1,9 @@
 package com.company.Main.Person;
 
+import com.company.Exceptions.AlreadyHasTicketException;
+import com.company.Main.Company;
 import com.company.Main.Meal.Meal;
+import com.company.Main.Ticket.SecondClass;
 import com.company.Main.Ticket.Ticket;
 
 import java.time.LocalDate;
@@ -43,6 +46,17 @@ public class Passenger extends Person {
         return 0;
     }
 
-    // TODO finish this method
-    //public String buyFirstClassTicket() {}
+    public boolean alreadyBoughtTicket(String tripNo)
+    {
+        boolean condition = false;
+        for(Ticket ticket : boughtTicket)
+        {
+            if(ticket.getTripNo().equals(tripNo))
+            {
+                condition = true;
+                break;
+            }
+        }
+        return condition;
+    }
 }
