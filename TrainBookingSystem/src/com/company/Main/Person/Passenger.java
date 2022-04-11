@@ -9,6 +9,7 @@ import java.util.HashSet;
 
 public class Passenger extends Person {
     private HashSet<Ticket> boughtTicket;
+    private int age;
 
     public Passenger(String name, LocalDate dateOfBirth) {
         this.name = name;
@@ -35,9 +36,9 @@ public class Passenger extends Person {
 
     public int getAge() {
         LocalDate curDate = LocalDate.now();
-        if ((dateOfBirth != null && (curDate != null)))
+        if (dateOfBirth != null)
         {
-            int age = Period.between(dateOfBirth, curDate).getYears();
+            age = Period.between(dateOfBirth, curDate).getYears();
             return age;
         }
         return 0;
