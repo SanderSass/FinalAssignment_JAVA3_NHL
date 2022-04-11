@@ -58,7 +58,7 @@ public class Passenger extends Person {
     }
 
     /**
-     * @return 
+     * @return
      */
     public boolean checkMeal(Ticket ticket)
     {
